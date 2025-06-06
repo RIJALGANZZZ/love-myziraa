@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Haii sayangg❤❤</title>
+	<style>
+		body {
+			background-color: #ffe6e6;
+			font-family: Arial, sans-serif;
+			margin: 0;
+			padding: 0;
+		}
+		
+		.container {
+			width: 80%;
+			margin: 40px auto;
+			background-color: #ffffff;
+			padding: 20px;
+			border: 1px solid #ddd;
+			border-radius: 10px;
+			box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		}
+		
+		.header {
+			background-color: #ff69b4;
+			padding: 20px;
+			text-align: center;
+			border-bottom: 1px solid #ddd;
+		}
+		
+		.header h1 {
+			color: #ffffff;
+			font-size: 36px;
+			margin: 0;
+		}
+		
+		.content {
+			padding: 20px;
+			text-align: center;
+		}
+		
+		.content p {
+			font-size: 18px;
+			color: #666;
+			margin-bottom: 20px;
+		}
+		
+		.footer {
+			background-color: #ff69b4;
+			padding: 10px;
+			text-align: center;
+			border-top: 1px solid #ddd;
+			color: #ffffff;
+			font-size: 14px;
+		}
+		
+		.pink-button {
+			background-color: #ff69b4;
+			color: #ffffff;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			transition: background-color 0.3s ease;
+		}
+		
+		.pink-button:hover {
+			background-color: #ff99cc;
+		}
+		
+		.image-container {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+			margin-top: 20px;
+		}
+		
+		.image-container img {
+			width: 200px;
+			height: 200px;
+			margin: 10px;
+			border-radius: 10px;
+			object-fit: cover;
+			box-shadow: 0 0 8px rgba(255,105,180,0.6);
+			transition: transform 0.3s ease;
+		}
+		.image-container img:hover {
+			transform: scale(1.05);
+		}
+		
+		.typing-effect {
+			font-size: 18px;
+			color: #666;
+			white-space: pre-wrap;
+			border-right: 2px solid #666;
+			width: 90%;
+			max-width: 600px;
+			margin: 30px auto 0 auto;
+			min-height: 80px;
+			animation: blink-caret 0.75s step-end infinite;
+		}
+		
+		@keyframes blink-caret {
+			from, to {
+				border-color: transparent;
+			}
+			50% {
+				border-color: #666;
+			}
+		}
+
+		#countdown {
+			margin-top: 30px;
+			font-size: 20px;
+			color: #ff3399;
+			font-weight: bold;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="header">
+			<h1>For ziraa</h1>
+		</div>
+		<div class="content">
+			<p>Selamat datang di tema romantis!</p>
+			<p>Tema ini dirancang untuk membuat kamu merasa lebih romantis dan nyaman.</p>
+			<button class="pink-button" onclick="showImages()">Klik di sini</button>
+			
+			<div id="countdown"></div>
+			
+			<div id="image-container" class="image-container" style="display: none;">
+				<img src="https://files.catbox.moe/e850es.jpg" alt="Image 1">
+				<img src="https://files.catbox.moe/sc1pmj.jpg" alt="Image 2">
+				<img src="https://files.catbox.moe/qc6ls8.jpg" alt="Image 3">
+				<img src="https://files.catbox.moe/c9eb1t.jpg" alt="Image 4">
+				<p id="typing-effect" class="typing-effect"></p>
+			</div>
+		</div>
+		<div class="footer">
+			<p>&copy; For my girll</p>
+		</div>
+	</div>
+	
+	<script>
+		function showImages() {
+			document.getElementById("image-container").style.display = "flex";
+			typeText();
+		}
+		
+		function typeText() {
+			const text = "Aku gak pernah nyangka bisa nemuin seseorang seindah kamu, not just your face, but your whole existence. Cara kamu bicara, cara kamu nanggepin sesuatu, bahkan cara kamu diem aja tuh punya caranya sendiri buat bikin aku nyaman. You are beautiful in ways that words can't fully explain. Ada kalanya aku cuma liatin kamu sambil mikir, “Kok bisa ya ada orang se-tenang dan sehangat ini.” Kamu itu rumah, kamu itu tempat paling aman buat aku pulang. I love the way you laugh, the way you smile, and the way you just are.";
+			let i = 0;
+			const speed = 40;
+			const elem = document.getElementById("typing-effect");
+			elem.textContent = "";
+
+			function typing() {
+				if (i < text.length) {
+					elem.textContent += text.charAt(i);
+					i++;
+					setTimeout(typing, speed);
+				}
+			}
+			typing();
+		}
+
+		// Countdown ke tanggal jadian 10 September
+		function startCountdown() {
+			let target = new Date(new Date().getFullYear(), 8, 10, 0, 0, 0); // Bulan 8 = September
+			let now = new Date();
+			if (now > target) {
+				target = new Date(new Date().getFullYear() + 1, 8, 10, 0, 0, 0);
+			}
+
+			function updateCountdown() {
+				let now = new Date();
+				let diff = target - now;
+
+				let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+				let hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+				let minutes = Math.floor((diff / (1000 * 60)) % 60);
+				let seconds = Math.floor((diff / 1000) % 60);
+
+				document.getElementById("countdown").innerText =
+					`Menuju hari jadian kita: ${days} hari ${hours} jam ${minutes} menit ${seconds} detik 💖`;
+			}
+
+			setInterval(updateCountdown, 1000);
+			updateCountdown();
+		}
+
+		startCountdown();
+	</script>
+</body>
+</html>
